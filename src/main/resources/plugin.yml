@@ -1,0 +1,7 @@
+name: DayZ
+version: 1.0.0
+description: Adds in some mechanics from the game "DayZ"
+author: Shades161 (NovaFox161)
+website: www.cloudcraftgaming.com
+
+main: com.cloudcraftgaming.dayz.Main
