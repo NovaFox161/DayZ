@@ -1,14 +1,17 @@
 package com.cloudcraftgaming.dayz.utils;
 
 import com.cloudcraftgaming.dayz.Main;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Nova Fox on 12/1/2016.
  * Website: www.cloudcraftgaming.com
  * For Project: DayZ
  */
+@SuppressWarnings("WeakerAccess")
 public class FileManager {
     private static Double conVersion = 1.0;
     static Double msgVersion = 1.0;
@@ -19,8 +22,8 @@ public class FileManager {
         if (!file.exists()) {
             Main.plugin.getLogger().info("Generating config.yml...");
 
-            Main.plugin.getConfig().addDefault("DO NOT DELETE.A", "SkyBrawl is developed and managed by Shades161.");
-            Main.plugin.getConfig().addDefault("DO NOT DELETE.B", "SkyBrawl is a paid for plugin and may only be used by the original purchaser");
+            Main.plugin.getConfig().addDefault("DO NOT DELETE.A", "DayZ is developed and managed by Shades161.");
+            Main.plugin.getConfig().addDefault("DO NOT DELETE.B", "DayZ is a paid for plugin and may only be used by the original purchaser");
 
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Lang", "En");
@@ -30,6 +33,22 @@ public class FileManager {
 
             Main.plugin.getConfig().options().copyDefaults(true);
             Main.plugin.saveConfig();
+        }
+    }
+
+    public static void createZoneLocationFile() {
+        if (!getZoneLocationFile().exists()) {
+            YamlConfiguration yml = getZoneLocationYml();
+            Main.plugin.getLogger().info("Generating zone location file...");
+
+            yml.addDefault("DO NOT DELETE.A", "DayZ is developed and managed by Shades161.");
+            yml.addDefault("DO NOT DELETE.B", "DayZ is a paid for plugin and may only be used by the original purchaser");
+
+            yml.options().copyDefaults(true);
+            saveZoneLocationFile(yml);
+
+            yml.options().copyDefaults(true);
+            saveZoneLocationFile(yml);
         }
     }
 
@@ -48,5 +67,25 @@ public class FileManager {
             Main.plugin.getPluginLoader().disablePlugin(Main.plugin);
         }
         */
+    }
+
+    //Getters
+    public static File getZoneLocationFile() {
+        return new File(Main.plugin.getDataFolder() + "/Locations/Zones.yml");
+    }
+
+    public static YamlConfiguration getZoneLocationYml() {
+        return YamlConfiguration.loadConfiguration(getZoneLocationFile());
+    }
+
+    //Setters
+
+    //Savers
+    public static void saveZoneLocationFile(YamlConfiguration yml) {
+        try {
+            yml.save(getZoneLocationFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -18,6 +18,7 @@ public class Main extends JavaPlugin {
 
         //Create files
         FileManager.createConfig();
+        FileManager.createZoneLocationFile();
 
         //Register commands
 
