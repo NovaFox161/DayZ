@@ -1,5 +1,6 @@
 package com.cloudcraftgaming.dayz;
 
+import com.cloudcraftgaming.dayz.utils.FileManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -14,5 +15,15 @@ public class Main extends JavaPlugin {
 
     public void onEnable() {
         plugin = this;
+
+        //Create files
+        FileManager.createConfig();
+
+        //Register commands
+
+        //Register events
+
+        //Finish up
+        FileManager.checkFileVersions();
     }
 }
