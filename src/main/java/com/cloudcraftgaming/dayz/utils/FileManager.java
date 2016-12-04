@@ -27,6 +27,15 @@ public class FileManager {
 
             Main.plugin.getConfig().addDefault("Chest.Refill.Time", 300);
 
+            Main.plugin.getConfig().addDefault("Thirst.AutoDrop.Enabled", true);
+            Main.plugin.getConfig().addDefault("Thirst.AutoDrop.Time", 5);
+            Main.plugin.getConfig().addDefault("Thirst.AutoDrop.Amount", 2);
+            Main.plugin.getConfig().addDefault("Thirst.Damage.Enabled", true);
+            Main.plugin.getConfig().addDefault("Thirst.Damage.Time", 1);
+            Main.plugin.getConfig().addDefault("Thirst.Damage.Amount", 1);
+            Main.plugin.getConfig().addDefault("Thirst.Drink.Enabled", true);
+            Main.plugin.getConfig().addDefault("Thirst.Drink.Amount", 10);
+
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Lang", "En");
 
