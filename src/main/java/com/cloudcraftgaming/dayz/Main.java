@@ -1,6 +1,7 @@
 package com.cloudcraftgaming.dayz;
 
 import com.cloudcraftgaming.dayz.utils.FileManager;
+import com.cloudcraftgaming.dayz.utils.TimeManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -26,5 +27,7 @@ public class Main extends JavaPlugin {
 
         //Finish up
         FileManager.checkFileVersions();
+
+        TimeManager.getManager().startChestRefillTimer();
     }
 }

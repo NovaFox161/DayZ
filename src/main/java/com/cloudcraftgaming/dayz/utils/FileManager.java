@@ -25,6 +25,8 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("DO NOT DELETE.A", "DayZ is developed and managed by Shades161.");
             Main.plugin.getConfig().addDefault("DO NOT DELETE.B", "DayZ is a paid for plugin and may only be used by the original purchaser");
 
+            Main.plugin.getConfig().addDefault("Chest.Refill.Time", 300);
+
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Lang", "En");
 
