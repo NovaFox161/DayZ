@@ -24,6 +24,8 @@ public class FileManager {
 
             Main.plugin.getConfig().addDefault("DO NOT DELETE.A", "DayZ is developed and managed by Shades161.");
             Main.plugin.getConfig().addDefault("DO NOT DELETE.B", "DayZ is a paid for plugin and may only be used by the original purchaser");
+            Main.plugin.getConfig().addDefault("Config Version", conVersion);
+            Main.plugin.getConfig().addDefault("Console.Verbose", true);
 
             Main.plugin.getConfig().addDefault("Chest.Refill.Time", 300);
 
@@ -78,6 +80,11 @@ public class FileManager {
             Main.plugin.getPluginLoader().disablePlugin(Main.plugin);
         }
         */
+    }
+
+    //Booleans/Checkers
+    public static boolean verbose() {
+        return Main.plugin.getConfig().getString("Console.Verbose").equalsIgnoreCase("True");
     }
 
     //Getters
