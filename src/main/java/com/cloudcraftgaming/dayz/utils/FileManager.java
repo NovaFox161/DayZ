@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Nova Fox on 12/1/2016.
@@ -26,6 +27,11 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("DO NOT DELETE.B", "DayZ is a paid for plugin and may only be used by the original purchaser");
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Console.Verbose", true);
+
+            List<String> worlds = Main.plugin.getConfig().getStringList("Worlds.Enabled");
+            worlds.add("world");
+            worlds.add("ExampleWorld");
+            Main.plugin.getConfig().set("Worlds.Enabled", worlds);
 
             Main.plugin.getConfig().addDefault("Chest.Refill.Time", 300);
 

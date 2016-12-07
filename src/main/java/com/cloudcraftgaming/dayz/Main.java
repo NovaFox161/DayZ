@@ -1,5 +1,6 @@
 package com.cloudcraftgaming.dayz;
 
+import com.cloudcraftgaming.dayz.listener.JoinListener;
 import com.cloudcraftgaming.dayz.utils.FileManager;
 import com.cloudcraftgaming.dayz.utils.TimeManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +25,7 @@ public class Main extends JavaPlugin {
         //Register commands
 
         //Register events
+        getServer().getPluginManager().registerEvents(new JoinListener(), this);
 
         //Finish up
         FileManager.checkFileVersions();
