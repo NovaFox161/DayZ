@@ -38,7 +38,9 @@ public class MessageManager {
             en.addDefault("DO NOT DELETE.B", "DayZ is a paid product and may only be used by the original purchaser!");
             en.addDefault("Messages Version", FileManager.msgVersion);
 
+            en.addDefault("Bone.Break", "&4Your bone is broken! You are slowed until it heals!");
 
+            en.addDefault("Bleed.Bleeding", "&4You're bleeding! Apply a bandage before you bleed out!");
 
             en.options().copyDefaults(true);
             saveLangFile(en);

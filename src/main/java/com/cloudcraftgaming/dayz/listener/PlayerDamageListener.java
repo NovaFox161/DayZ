@@ -2,6 +2,7 @@ package com.cloudcraftgaming.dayz.listener;
 
 import com.cloudcraftgaming.dayz.Main;
 import com.cloudcraftgaming.dayz.player.PlayerDataManager;
+import com.cloudcraftgaming.dayz.utils.MessageManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
@@ -30,6 +31,7 @@ public class PlayerDamageListener implements Listener {
                     if (!PlayerDataManager.hasBrokenBone(p)) {
                         PlayerDataManager.setBoneBroken(p, true);
                         //Tell player.
+                        p.sendMessage(MessageManager.getMessage("Bone.Break"));
                     }
                 }
             }
@@ -47,11 +49,13 @@ public class PlayerDamageListener implements Listener {
                     if (!PlayerDataManager.isBleeding(p)) {
                         PlayerDataManager.setBleeding(p, true);
                         //Tell player.
+                        p.sendMessage(MessageManager.getMessage("Bleed.Bleeding"));
                     }
                 } else if (event.getDamager() instanceof Arrow) {
                     if (!PlayerDataManager.isBleeding(p)) {
                         PlayerDataManager.setBleeding(p, true);
                         //Tell player.
+                        p.sendMessage(MessageManager.getMessage("Bleed.Bleeding"));
                     }
                 } else if (event.getDamager() instanceof Player) {
                     Player damager = (Player) event.getDamager();
@@ -63,6 +67,7 @@ public class PlayerDamageListener implements Listener {
                             if (!PlayerDataManager.isBleeding(p)) {
                                 PlayerDataManager.setBleeding(p, true);
                                 //Tell player.
+                                p.sendMessage(MessageManager.getMessage("Bleed.Bleeding"));
                             }
                         }
                     }
