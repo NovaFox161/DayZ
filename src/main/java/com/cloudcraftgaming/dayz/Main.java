@@ -4,6 +4,7 @@ import com.cloudcraftgaming.dayz.listener.DeathListener;
 import com.cloudcraftgaming.dayz.listener.JoinListener;
 import com.cloudcraftgaming.dayz.listener.PlayerDamageListener;
 import com.cloudcraftgaming.dayz.utils.FileManager;
+import com.cloudcraftgaming.dayz.utils.MessageManager;
 import com.cloudcraftgaming.dayz.utils.TimeManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,6 +24,7 @@ public class Main extends JavaPlugin {
         //Create files
         FileManager.createConfig();
         FileManager.createZoneLocationFile();
+        MessageManager.createEnglishMessagesFile();
 
         //Register commands
 
