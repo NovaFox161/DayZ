@@ -42,6 +42,7 @@ public class MessageManager {
             en.addDefault("Bone.Mend", "&6Your bone is no longer broken!");
 
             en.addDefault("Bleed.Bleeding", "&4You're bleeding! Apply a bandage before you bleed out!");
+            en.addDefault("Bleed.Patch", "&6You have patched your wound and are no longer bleeding!");
 
             en.options().copyDefaults(true);
             saveLangFile(en);

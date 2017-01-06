@@ -4,6 +4,7 @@ import com.cloudcraftgaming.dayz.listener.DeathListener;
 import com.cloudcraftgaming.dayz.listener.JoinListener;
 import com.cloudcraftgaming.dayz.listener.PlayerDamageListener;
 import com.cloudcraftgaming.dayz.listener.PlayerInteractListener;
+import com.cloudcraftgaming.dayz.mechanics.Bleed;
 import com.cloudcraftgaming.dayz.mechanics.BoneBreak;
 import com.cloudcraftgaming.dayz.utils.FileManager;
 import com.cloudcraftgaming.dayz.utils.MessageManager;
@@ -41,6 +42,7 @@ public class Main extends JavaPlugin {
 
         //Initiate new mechanics
         BoneBreak.getInstance().init();
+        Bleed.getInstance().init();
         TimeManager.getManager().startChestRefillTimer();
     }
 }

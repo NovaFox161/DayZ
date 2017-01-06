@@ -50,6 +50,10 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("BoneBreak.Particles", true);
             Main.plugin.getConfig().addDefault("BoneBreak.Force", true);
 
+            Main.plugin.getConfig().addDefault("Bleed.Enabled", true);
+            Main.plugin.getConfig().addDefault("Bleed.Seconds", 4);
+            Main.plugin.getConfig().addDefault("Bleed.Damage", 1.0);
+
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Lang", "En");
 

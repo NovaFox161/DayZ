@@ -35,6 +35,14 @@ public class PlayerInteractListener implements Listener {
                            //Send message
                            p.sendMessage(MessageManager.getMessage("Bone.Mend"));
                        }
+                   } else if (event.getItem().getType() == Material.PAPER) {
+                       if (PlayerDataManager.isBleeding(p)) {
+                           PlayerDataManager.setBleeding(p, false);
+                           event.getItem().setAmount(event.getItem().getAmount() - 1);
+
+                           //Send message
+                           p.sendMessage(MessageManager.getMessage("Bleed.Patch"));
+                       }
                    }
                }
             }
