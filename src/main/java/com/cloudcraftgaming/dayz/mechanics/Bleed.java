@@ -3,6 +3,7 @@ package com.cloudcraftgaming.dayz.mechanics;
 import com.cloudcraftgaming.dayz.Main;
 import com.cloudcraftgaming.dayz.player.PlayerDataManager;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 /**
@@ -43,8 +44,10 @@ public class Bleed {
         if (Main.plugin.getConfig().getString("Bleed.Enabled").equalsIgnoreCase("True")) {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
-                    if (PlayerDataManager.isBleeding(p)) {
-                        applyDamage(p);
+                    if (p.getGameMode() == GameMode.ADVENTURE || p.getGameMode() == GameMode.SURVIVAL) {
+                        if (PlayerDataManager.isBleeding(p)) {
+                            applyDamage(p);
+                        }
                     }
                 }
             }
@@ -52,9 +55,11 @@ public class Bleed {
     }
 
     private void applyDamage(Player player) {
-        if (Main.plugin.getConfig().getString("Bleed.Enabled").equalsIgnoreCase("True")) {
-            Double damage = Main.plugin.getConfig().getDouble("Bleed.Damage");
-            player.damage(damage);
+        if (player.getGameMode() == GameMode.ADVENTURE || player.getGameMode() == GameMode.SURVIVAL) {
+            if (Main.plugin.getConfig().getString("Bleed.Enabled").equalsIgnoreCase("True")) {
+                Double damage = Main.plugin.getConfig().getDouble("Bleed.Damage");
+                player.damage(damage);
+            }
         }
     }
 }
