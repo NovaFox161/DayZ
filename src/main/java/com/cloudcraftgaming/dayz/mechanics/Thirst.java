@@ -24,8 +24,10 @@ public class Thirst {
     }
 
     public void init() {
-        startThirstChecker();
-        startThirstDamager();
+        if (Main.plugin.getConfig().getString("Thirst.Enabled").equalsIgnoreCase("True")) {
+            startThirstChecker();
+            startThirstDamager();
+        }
     }
 
     private void startThirstChecker() {
@@ -53,29 +55,33 @@ public class Thirst {
     }
 
     private void applyThirst() {
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
-                Double thirst = PlayerDataManager.getThirst(p);
-                Double amount = Main.plugin.getConfig().getDouble("Thirst.AutoDrop.Amount");
+        if (Main.plugin.getConfig().getString("Thirst.Enabled").equalsIgnoreCase("True")) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
+                    Double thirst = PlayerDataManager.getThirst(p);
+                    Double amount = Main.plugin.getConfig().getDouble("Thirst.AutoDrop.Amount");
 
-                if (thirst - amount <= 0) {
-                    PlayerDataManager.setThirst(p, 0.0);
-                    //Tell player!
-                    p.sendMessage(MessageManager.getMessage("Thirst.None"));
-                } else {
-                    PlayerDataManager.setThirst(p, thirst - amount);
+                    if (thirst - amount <= 0) {
+                        PlayerDataManager.setThirst(p, 0.0);
+                        //Tell player!
+                        p.sendMessage(MessageManager.getMessage("Thirst.None"));
+                    } else {
+                        PlayerDataManager.setThirst(p, thirst - amount);
+                    }
                 }
             }
         }
     }
 
     private void applyDamage() {
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
-                Double thirst = PlayerDataManager.getThirst(p);
-                if (thirst <= 0) {
-                    Double damage = Main.plugin.getConfig().getDouble("Thirst.Damage.Amount");
-                    p.damage(damage);
+        if (Main.plugin.getConfig().getString("Thirst.Enabled").equalsIgnoreCase("True")) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
+                    Double thirst = PlayerDataManager.getThirst(p);
+                    if (thirst <= 0) {
+                        Double damage = Main.plugin.getConfig().getDouble("Thirst.Damage.Amount");
+                        p.damage(damage);
+                    }
                 }
             }
         }

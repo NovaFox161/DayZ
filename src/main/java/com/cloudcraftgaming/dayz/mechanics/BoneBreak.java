@@ -25,7 +25,9 @@ public class BoneBreak {
     }
 
     public void init() {
-        startCheckers();
+        if (Main.plugin.getConfig().getString("BoneBreak.Enabled").equalsIgnoreCase("True")) {
+            startCheckers();
+        }
     }
 
     private void startCheckers() {
@@ -39,10 +41,12 @@ public class BoneBreak {
     }
 
     private void checkPlayers() {
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
-                if (PlayerDataManager.hasBrokenBone(p)) {
-                    applyBreak(p);
+        if (Main.plugin.getConfig().getString("BoneBreak.Enabled").equalsIgnoreCase("True")) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
+                    if (PlayerDataManager.hasBrokenBone(p)) {
+                        applyBreak(p);
+                    }
                 }
             }
         }
@@ -50,14 +54,17 @@ public class BoneBreak {
 
     //Functionals
     public Boolean applyBreak(Player player) {
-        Integer level = Main.plugin.getConfig().getInt("BoneBreak.Level");
-        Boolean ambient = Main.plugin.getConfig().getString("BoneBreak.Ambient").equalsIgnoreCase("True");
-        Boolean particles = Main.plugin.getConfig().getString("BoneBreak.Particles").equalsIgnoreCase("True");
-        Boolean force = Main.plugin.getConfig().getString("BoneBreak.Force").equalsIgnoreCase("True");
+        if (Main.plugin.getConfig().getString("BoneBreak.Enabled").equalsIgnoreCase("True")) {
+            Integer level = Main.plugin.getConfig().getInt("BoneBreak.Level");
+            Boolean ambient = Main.plugin.getConfig().getString("BoneBreak.Ambient").equalsIgnoreCase("True");
+            Boolean particles = Main.plugin.getConfig().getString("BoneBreak.Particles").equalsIgnoreCase("True");
+            Boolean force = Main.plugin.getConfig().getString("BoneBreak.Force").equalsIgnoreCase("True");
 
-        PotionEffect potionEffect = new PotionEffect(PotionEffectType.SLOW, 999999999, level, ambient, particles);
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.SLOW, 999999999, level, ambient, particles);
 
-        return player.addPotionEffect(potionEffect, force);
+            return player.addPotionEffect(potionEffect, force);
+        }
+        return false;
     }
 
     public void mendBreak(Player player) {
