@@ -23,6 +23,10 @@ public class DeathListener implements Listener {
             PlayerDataManager.setThirst(p, 100.0);
             PlayerDataManager.setBleeding(p, false);
             PlayerDataManager.setBoneBroken(p, false);
+            if (Main.plugin.getConfig().getString("Chest.Display.Enabled").equalsIgnoreCase("True") || Main.plugin.getConfig().getString("Thirst.Display.Enabled").equalsIgnoreCase("True")) {
+                event.setDroppedExp(0);
+                event.setKeepLevel(true);
+            }
         }
     }
 }
