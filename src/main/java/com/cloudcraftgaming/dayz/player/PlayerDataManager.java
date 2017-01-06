@@ -1,6 +1,7 @@
 package com.cloudcraftgaming.dayz.player;
 
 import com.cloudcraftgaming.dayz.Main;
+import com.cloudcraftgaming.dayz.mechanics.EXPVisualizer;
 import com.cloudcraftgaming.dayz.utils.FileManager;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -94,6 +95,7 @@ public class PlayerDataManager {
             YamlConfiguration yml = getPlayerDataYml(player);
             yml.set("Thirst.Percent", percent);
             savePlayerDataFile(player, yml);
+            EXPVisualizer.changeThirstIndicator(player);
             return true;
         }
         return false;
