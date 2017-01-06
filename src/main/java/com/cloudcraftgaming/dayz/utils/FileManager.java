@@ -37,6 +37,8 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("Chest.Refill.Enabled", true);
             Main.plugin.getConfig().addDefault("Chest.Refill.RequireEmpty", true);
             Main.plugin.getConfig().addDefault("Chest.Refill.Time", 300);
+            Main.plugin.getConfig().addDefault("Chest.Display.Enabled", true);
+            Main.plugin.getConfig().addDefault("Chest.Display.Unit", "MINUTE");
 
             Main.plugin.getConfig().addDefault("Thirst.Enabled", true);
             Main.plugin.getConfig().addDefault("Thirst.AutoDrop.Seconds", 5);

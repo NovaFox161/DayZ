@@ -2,6 +2,7 @@ package com.cloudcraftgaming.dayz.mechanics;
 
 import com.cloudcraftgaming.dayz.Main;
 import com.cloudcraftgaming.dayz.player.PlayerDataManager;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
@@ -26,5 +27,25 @@ public class EXPVisualizer {
             }
         }
         return false;
+    }
+
+    public static void changeChestRefillInticator() {
+        if (Main.plugin.getConfig().getString("Chest.Refill.Enabled").equalsIgnoreCase("True")) {
+            if (Main.plugin.getConfig().getString("Chest.Display.Enabled").equalsIgnoreCase("True")) {
+                Integer lvl;
+                if (Main.plugin.getConfig().getString("Chest.Display.Unit").equalsIgnoreCase("MINUTE")) {
+                    lvl = ChestRefill.getInstance().getMinutesRemaining();
+                } else {
+                    lvl = ChestRefill.getInstance().getSecondsRemaining();
+                }
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
+                        if (p.getGameMode() == GameMode.ADVENTURE || p.getGameMode() == GameMode.SURVIVAL) {
+                            p.setLevel(lvl);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

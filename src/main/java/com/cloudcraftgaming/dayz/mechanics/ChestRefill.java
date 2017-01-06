@@ -34,6 +34,7 @@ public class ChestRefill {
 
     private void startChestRefillTimer() {
         if (Main.plugin.getConfig().getString("Chest.Refill.Enabled").equalsIgnoreCase("True")) {
+            EXPVisualizer.changeChestRefillInticator();
             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
                 @Override
                 public void run() {
