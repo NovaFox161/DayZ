@@ -1,6 +1,7 @@
 package com.cloudcraftgaming.dayz.listener;
 
 import com.cloudcraftgaming.dayz.Main;
+import com.cloudcraftgaming.dayz.mechanics.BoneBreak;
 import com.cloudcraftgaming.dayz.player.PlayerDataManager;
 import com.cloudcraftgaming.dayz.utils.MessageManager;
 import org.bukkit.Material;
@@ -30,6 +31,7 @@ public class PlayerDamageListener implements Listener {
                 if (event.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
                     if (!PlayerDataManager.hasBrokenBone(p)) {
                         PlayerDataManager.setBoneBroken(p, true);
+                        BoneBreak.getInstance().applyBreak(p);
                         //Tell player.
                         p.sendMessage(MessageManager.getMessage("Bone.Break"));
                     }

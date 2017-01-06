@@ -39,6 +39,7 @@ public class MessageManager {
             en.addDefault("Messages Version", FileManager.msgVersion);
 
             en.addDefault("Bone.Break", "&4Your bone is broken! Heal it by right clicking a bone!");
+            en.addDefault("Bone.Mend", "&6Your bone is no longer broken!");
 
             en.addDefault("Bleed.Bleeding", "&4You're bleeding! Apply a bandage before you bleed out!");
 

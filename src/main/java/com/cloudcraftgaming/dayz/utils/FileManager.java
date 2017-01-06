@@ -44,6 +44,12 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("Thirst.Drink.Enabled", true);
             Main.plugin.getConfig().addDefault("Thirst.Drink.Amount", 10);
 
+            Main.plugin.getConfig().addDefault("BoneBreak.Enabled", true);
+            Main.plugin.getConfig().addDefault("BoneBreak.Level", 2);
+            Main.plugin.getConfig().addDefault("BoneBreak.Ambient", false);
+            Main.plugin.getConfig().addDefault("BoneBreak.Particles", true);
+            Main.plugin.getConfig().addDefault("BoneBreak.Force", true);
+
             Main.plugin.getConfig().addDefault("Config Version", conVersion);
             Main.plugin.getConfig().addDefault("Lang", "En");
 

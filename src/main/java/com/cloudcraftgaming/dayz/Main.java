@@ -3,6 +3,8 @@ package com.cloudcraftgaming.dayz;
 import com.cloudcraftgaming.dayz.listener.DeathListener;
 import com.cloudcraftgaming.dayz.listener.JoinListener;
 import com.cloudcraftgaming.dayz.listener.PlayerDamageListener;
+import com.cloudcraftgaming.dayz.listener.PlayerInteractListener;
+import com.cloudcraftgaming.dayz.mechanics.BoneBreak;
 import com.cloudcraftgaming.dayz.utils.FileManager;
 import com.cloudcraftgaming.dayz.utils.MessageManager;
 import com.cloudcraftgaming.dayz.utils.TimeManager;
@@ -32,10 +34,13 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDamageListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 
         //Finish up
         FileManager.checkFileVersions();
 
+        //Initiate new mechanics
+        BoneBreak.getInstance().init();
         TimeManager.getManager().startChestRefillTimer();
     }
 }
