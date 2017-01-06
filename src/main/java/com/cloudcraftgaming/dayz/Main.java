@@ -3,10 +3,10 @@ package com.cloudcraftgaming.dayz;
 import com.cloudcraftgaming.dayz.listener.*;
 import com.cloudcraftgaming.dayz.mechanics.Bleed;
 import com.cloudcraftgaming.dayz.mechanics.BoneBreak;
+import com.cloudcraftgaming.dayz.mechanics.ChestRefill;
 import com.cloudcraftgaming.dayz.mechanics.Thirst;
 import com.cloudcraftgaming.dayz.utils.FileManager;
 import com.cloudcraftgaming.dayz.utils.MessageManager;
-import com.cloudcraftgaming.dayz.utils.TimeManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -25,6 +25,7 @@ public class Main extends JavaPlugin {
         //Create files
         FileManager.createConfig();
         FileManager.createZoneLocationFile();
+        FileManager.createItemFile();
         MessageManager.createEnglishMessagesFile();
 
         //Register commands
@@ -35,6 +36,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerItemConsumeListener(), this);
+        getServer().getPluginManager().registerEvents(new ChestListener(), this);
 
         //Finish up
         FileManager.checkFileVersions();
@@ -43,6 +45,6 @@ public class Main extends JavaPlugin {
         BoneBreak.getInstance().init();
         Bleed.getInstance().init();
         Thirst.getInstance().init();
-        TimeManager.getManager().startChestRefillTimer();
+        ChestRefill.getInstance().init();
     }
 }
