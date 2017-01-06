@@ -44,6 +44,9 @@ public class MessageManager {
             en.addDefault("Bleed.Bleeding", "&4You're bleeding! Apply a bandage before you bleed out!");
             en.addDefault("Bleed.Patch", "&6You have patched your wound and are no longer bleeding!");
 
+            en.addDefault("Thirst.None", "&4You need to drink water or you will die!");
+            en.addDefault("Thirst.Full", "&6Thirst full!");
+
             en.options().copyDefaults(true);
             saveLangFile(en);
 
