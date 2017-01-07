@@ -5,3 +5,13 @@ author: Shades161 (NovaFox161)
 website: www.cloudcraftgaming.com
 
 main: com.cloudcraftgaming.dayz.Main
+
+commands:
+  dayz:
+    description: Base command for the DayZ plugin.
+    permission: DayZ.admin
+
+permissions:
+  DayZ.admin:
+    description: Allows use of the dayz command.
+    default: op

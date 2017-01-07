@@ -37,4 +37,8 @@ public enum Zone {
             return ONE;
         }
     }
+
+    public static Boolean isValid(int value) {
+        return value > 0 && value < 7;
+    }
 }

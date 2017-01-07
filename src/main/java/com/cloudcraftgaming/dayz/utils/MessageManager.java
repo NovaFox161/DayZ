@@ -52,6 +52,18 @@ public class MessageManager {
             en.addDefault("Set.Location.Check.OneOnly", "&6Set location two by right clicking a block!");
             en.addDefault("Set.Location.Check.TwoOnly", "&6Set location one by left clicking a block!");
             en.addDefault("Set.Location.Check.Both", "&6Both locations set! Use the appropriate command!");
+            en.addDefault("Set.Location.Check.None", "&6Set locations via the zone tool (stick)!");
+
+            en.addDefault("Command.Tool.Enabled", "&6Zone tool (stick) now enabled!");
+            en.addDefault("Command.Tool.Disabled", "&6Zone tool (stick) now disabled!");
+            en.addDefault("Command.Set.Zone", "&6Zone %number% locations set!");
+
+            en.addDefault("Notification.PlayerOnly", "&4That command can only be used by a player!");
+            en.addDefault("Notification.NoPerm", "&4You do not have permission to do that!");
+            en.addDefault("Notification.Args.TooFew", "&4Too few arguments! Use /dayz help!");
+            en.addDefault("Notification.Args.TooMany", "&4Too many arguments! Use /dayz help!");
+            en.addDefault("Notification.Args.Invalid", "&4Invalid arguments! Use /dayz help!");
+            en.addDefault("Notification.ZoneNum.Integer", "&4Zone number invalid! It must be between 1 and 6!");
 
             en.options().copyDefaults(true);
             saveLangFile(en);
