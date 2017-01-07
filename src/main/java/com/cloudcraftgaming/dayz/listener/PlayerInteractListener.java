@@ -55,4 +55,38 @@ public class PlayerInteractListener implements Listener {
             }
         }
     }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void OnPlayerZoneInteract(PlayerInteractEvent event) {
+        Player p = event.getPlayer();
+        if (Main.plugin.getConfig().getStringList("Worlds.Enabled").contains(p.getWorld().getName())) {
+            if (event.getItem() != null && event.getItem().getType() == Material.STICK) {
+                if (PlayerDataManager.zoneToolEnabled(p)) {
+                    if (event.getAction() == Action.LEFT_CLICK_BLOCK) {
+                        PlayerDataManager.setLocationOne(p, event.getClickedBlock().getLocation());
+                        p.sendMessage(MessageManager.getMessage("Set.Location.One"));
+                        checkLocations(p);
+                    } else if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                        PlayerDataManager.setLocationTwo(p, event.getClickedBlock().getLocation());
+                        p.sendMessage(MessageManager.getMessage("Set.Location.Two"));
+                        checkLocations(p);
+                    }
+                }
+            }
+        }
+    }
+
+    private void checkLocations(Player p) {
+        //Implement the checking and messages here.
+        if (PlayerDataManager.hasLocationOne(p) && !PlayerDataManager.hasLocationTwo(p)) {
+            //Location one only.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.OneOnly"));
+        } else if (PlayerDataManager.hasLocationOne(p) && PlayerDataManager.hasLocationTwo(p)) {
+            //Both locations one and two set.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.Both"));
+        } else if (!PlayerDataManager.hasLocationOne(p) && PlayerDataManager.hasLocationTwo(p)) {
+            //Location two only.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.TwoOnly"));
+        }
+    }
 }
