@@ -1,5 +1,6 @@
 package com.cloudcraftgaming.dayz.utils;
 
+import com.cloudcraftgaming.dayz.Main;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -88,10 +89,12 @@ public class ItemManager {
     }
 
     public static Boolean chestEmpty(Inventory inv) {
-        for (ItemStack is : inv.getContents()) {
-            if (is != null) {
-                if (!is.getType().equals(Material.AIR)) {
-                    return false;
+        if (Main.plugin.getConfig().getString("Chest.Refill.RequireEmpty").equalsIgnoreCase("True")) {
+            for (ItemStack is : inv.getContents()) {
+                if (is != null) {
+                    if (!is.getType().equals(Material.AIR)) {
+                        return false;
+                    }
                 }
             }
         }
