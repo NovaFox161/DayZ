@@ -360,7 +360,7 @@ public class FileManager {
             Main.plugin.getLogger().severe("Disabling plugin to prevent further errors...");
             Main.plugin.getPluginLoader().disablePlugin(Main.plugin);
         }
-        if (MessageManager.getMessageYml().getDouble("Config Version") != msgVersion) {
+        if (MessageManager.getMessageYml().getDouble("Messages Version") != msgVersion) {
             Main.plugin.getLogger().severe("Messages file outdated!!! Plugin will not work properly!");
             Main.plugin.getLogger().severe("Stop the server, copy your messages, and delete the messages folder then restart the server!");
             Main.plugin.getLogger().severe("Disabling plugin to prevent further errors...");
