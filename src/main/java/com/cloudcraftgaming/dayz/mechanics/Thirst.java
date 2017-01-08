@@ -62,13 +62,14 @@ public class Thirst {
                     if (p.getGameMode() == GameMode.ADVENTURE || p.getGameMode() == GameMode.SURVIVAL) {
                         Double thirst = PlayerDataManager.getThirst(p);
                         Double amount = Main.plugin.getConfig().getDouble("Thirst.AutoDrop.Amount");
-
-                        if (thirst - amount <= 0) {
-                            PlayerDataManager.setThirst(p, 0.0);
-                            //Tell player!
-                            p.sendMessage(MessageManager.getMessage("Thirst.None"));
-                        } else {
-                            PlayerDataManager.setThirst(p, thirst - amount);
+                        if (thirst > 0) {
+                            if (thirst - amount <= 0) {
+                                PlayerDataManager.setThirst(p, 0.0);
+                                //Tell player!
+                                p.sendMessage(MessageManager.getMessage("Thirst.None"));
+                            } else {
+                                PlayerDataManager.setThirst(p, thirst - amount);
+                            }
                         }
                     }
                 }
