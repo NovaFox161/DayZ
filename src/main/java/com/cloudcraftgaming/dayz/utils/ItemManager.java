@@ -33,7 +33,7 @@ public class ItemManager {
     }
 
     private static Material getNextItemForChest(Integer zone) {
-        List<String> itemNames = FileManager.getItemYml().getStringList("Chest.Zone." + zone + ".Items.Possible");
+        List<String> itemNames = FileManager.getItemYml().getStringList("Zone." + zone + ".Items.Possible");
         Collections.shuffle(itemNames);
         String itemName = itemNames.get(0);
         return Material.getMaterial(itemName);
