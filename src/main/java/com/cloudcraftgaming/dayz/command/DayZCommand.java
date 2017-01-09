@@ -31,7 +31,7 @@ public class DayZCommand implements CommandExecutor {
                             PlayerDataManager.setZoneTool(player, !PlayerDataManager.zoneToolEnabled(player));
                             //Send message.
                             if (PlayerDataManager.zoneToolEnabled(player)) {
-                                player.sendMessage(MessageManager.getMessage("Command.Tool.Enabled0"));
+                                player.sendMessage(MessageManager.getMessage("Command.Tool.Enabled"));
                             } else {
                                 player.sendMessage(MessageManager.getMessage("Command.Tool.Disabled"));
                             }
