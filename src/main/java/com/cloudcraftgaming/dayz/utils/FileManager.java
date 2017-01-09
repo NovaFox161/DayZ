@@ -13,7 +13,6 @@ import java.util.List;
  * Website: www.cloudcraftgaming.com
  * For Project: DayZ
  */
-@SuppressWarnings("WeakerAccess")
 public class FileManager {
     private static Double conVersion = 1.0;
     static Double msgVersion = 1.0;
@@ -374,7 +373,7 @@ public class FileManager {
     }
 
     //Getters
-    public static File getZoneLocationFile() {
+    private static File getZoneLocationFile() {
         return new File(Main.plugin.getDataFolder() + "/Locations/Zones.yml");
     }
 
@@ -382,16 +381,14 @@ public class FileManager {
         return YamlConfiguration.loadConfiguration(getZoneLocationFile());
     }
 
-    public static File getItemFile() {
+    private static File getItemFile() {
         return new File(Main.plugin.getDataFolder() + "/items.yml");
     }
 
-    public static YamlConfiguration getItemYml() {
+    static YamlConfiguration getItemYml() {
         File file = getItemFile();
         return YamlConfiguration.loadConfiguration(file);
     }
-
-    //Setters
 
     //Savers
     public static void saveZoneLocationFile(YamlConfiguration yml) {
@@ -402,7 +399,7 @@ public class FileManager {
         }
     }
 
-    public static void saveItemFile(YamlConfiguration yml) {
+    private static void saveItemFile(YamlConfiguration yml) {
         try {
             yml.save(getItemFile());
         } catch (IOException e) {

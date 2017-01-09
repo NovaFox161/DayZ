@@ -36,7 +36,7 @@ public class ZoneDataManager {
     }
 
     //Getters
-    public static Location getLocationOneForZone(Zone zone) {
+    private static Location getLocationOneForZone(Zone zone) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
         World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".loc1.world"));
         Double x = yml.getDouble("Zones." + zone.name() + ".loc1.x");
@@ -45,7 +45,7 @@ public class ZoneDataManager {
         return new Location(w, x, y, z);
     }
 
-    public static Location getLocationTwoForZone(Zone zone) {
+    private static Location getLocationTwoForZone(Zone zone) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
         World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".loc2.world"));
         Double x = yml.getDouble("Zones." + zone.name() + ".loc2.x");
@@ -68,7 +68,7 @@ public class ZoneDataManager {
     }
 
     //Booleans/Checkers
-    public static Boolean zoneSaved(Zone zone) {
+    private static Boolean zoneSaved(Zone zone) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
         return yml.contains("Zones." + zone.name() + ".loc1") && yml.contains("Zones." + zone.name() + ".loc2");
     }

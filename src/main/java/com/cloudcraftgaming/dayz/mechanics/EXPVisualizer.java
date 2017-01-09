@@ -29,7 +29,7 @@ public class EXPVisualizer {
         return false;
     }
 
-    public static void changeChestRefillInticator() {
+    static void changeChestRefillIndicator() {
         if (Main.plugin.getConfig().getString("Chest.Refill.Enabled").equalsIgnoreCase("True")) {
             if (Main.plugin.getConfig().getString("Chest.Display.Enabled").equalsIgnoreCase("True")) {
                 Integer lvl;
