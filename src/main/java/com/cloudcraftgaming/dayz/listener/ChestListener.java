@@ -33,6 +33,7 @@ public class ChestListener implements Listener {
                             if (!ChestRefill.getInstance().hasBeenRefilled(chest.getLocation())) {
                                 ChestRefill.getInstance().addLocation(chest.getLocation());
                                 int slot = 0;
+                                chest.getInventory().clear();
                                 for (ItemStack itemStack : ItemManager.getItemsChest(zoneNumber)) {
                                     chest.getInventory().setItem(slot, itemStack);
                                     slot++;
