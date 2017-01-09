@@ -46,10 +46,10 @@ public class DayZCommand implements CommandExecutor {
                                 if (Zone.isValid(zoneNum)) {
                                     setZone(player, zoneNum);
                                 } else {
-                                    MessageManager.getMessage("Notification.ZoneNum.Integer");
+                                    player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                                 }
                             } catch (NumberFormatException e) {
-                                MessageManager.getMessage("Notification.ZoneNum.Integer");
+                                player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                             }
                         }
                     } else {
