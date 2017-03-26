@@ -39,6 +39,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerItemConsumeListener(), this);
         getServer().getPluginManager().registerEvents(new ChestListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
         //Finish up
         FileManager.checkFileVersions();

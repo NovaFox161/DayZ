@@ -49,6 +49,9 @@ public class MessageManager {
 
             en.addDefault("Chest.Refill", "&6Chests have been refilled!");
 
+            en.addDefault("Zone.Change", "&7You have entered zone %zone%!");
+            en.addDefault("Zone.Leave", "&7You have left zone %zone%!");
+
             en.addDefault("Set.Location.One", "&6Location one set!");
             en.addDefault("Set.Location.Two", "&6Location two set!");
             en.addDefault("Set.Location.Check.OneOnly", "&6Set location two by right clicking a block!");
