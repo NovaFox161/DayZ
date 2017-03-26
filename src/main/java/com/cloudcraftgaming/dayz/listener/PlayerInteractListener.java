@@ -49,6 +49,24 @@ public class PlayerInteractListener implements Listener {
                                     p.sendMessage(MessageManager.getMessage("Bleed.Patch"));
                                 }
                             }
+                        } else if (event.getItem().getType() == Material.INK_SACK) {
+                            if (event.getItem().getDurability() == 14) {
+                                //'pepsi'
+                                if (Main.plugin.getConfig().getString("Thirst.Enabled").equalsIgnoreCase("True")) {
+                                    if (PlayerDataManager.getThirst(p) < 100) {
+                                        Double fill = Main.plugin.getConfig().getDouble("Thirst.Pepsi.Amount");
+
+                                        if (PlayerDataManager.getThirst(p) + fill >= 100) {
+                                            PlayerDataManager.setThirst(p, 100d);
+                                            event.getItem().setAmount(event.getItem().getAmount() - 1);
+                                            p.sendMessage(MessageManager.getMessage("Thirst.Full"));
+                                        } else {
+                                            PlayerDataManager.setThirst(p, fill);
+                                            event.getItem().setAmount(event.getItem().getAmount() - 1);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
