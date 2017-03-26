@@ -1,8 +1,10 @@
 package com.cloudcraftgaming.dayz.mechanics;
 
 import com.cloudcraftgaming.dayz.Main;
+import com.cloudcraftgaming.dayz.utils.MessageManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,10 @@ public class ChestRefill {
 
     private void refillChests() {
         usedLocations.clear();
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.sendMessage(MessageManager.getMessage("Chest.Refill"));
+        }
 
         secondsRemaining = Main.plugin.getConfig().getInt("Chest.Refill.Time");
         startChestRefillTimer();

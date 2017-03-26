@@ -47,6 +47,8 @@ public class MessageManager {
             en.addDefault("Thirst.None", "&4You need to drink water or you will die!");
             en.addDefault("Thirst.Full", "&6Thirst full!");
 
+            en.addDefault("Chest.Refill", "&6Chests have been refilled!");
+
             en.addDefault("Set.Location.One", "&6Location one set!");
             en.addDefault("Set.Location.Two", "&6Location two set!");
             en.addDefault("Set.Location.Check.OneOnly", "&6Set location two by right clicking a block!");
