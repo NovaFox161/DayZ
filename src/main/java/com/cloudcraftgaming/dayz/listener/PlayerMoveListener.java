@@ -1,7 +1,6 @@
 package com.cloudcraftgaming.dayz.listener;
 
 import com.cloudcraftgaming.dayz.utils.MessageManager;
-import com.cloudcraftgaming.dayz.zone.Zone;
 import com.cloudcraftgaming.dayz.zone.ZoneDataManager;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -26,14 +25,9 @@ public class PlayerMoveListener implements Listener {
                 //Within zones, changed zones.
                 if (!zoneFrom.equals(zoneTo)) {
                     String msgOr = MessageManager.getMessage("Zone.Change");
-                    String msg = msgOr.replaceAll("%zone%", Zone.fromValue(zoneTo).name());
+                    String msg = msgOr.replaceAll("%zone%", String.valueOf(zoneTo));
                     event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                 }
-            } else if (zoneFrom != 0) {
-                //Left all zones.
-                String msgOr = MessageManager.getMessage("Zone.Leave");
-                String msg = msgOr.replaceAll("%zone%", Zone.fromValue(zoneTo).name());
-                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
         }
     }
