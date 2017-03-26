@@ -1,6 +1,7 @@
 package com.cloudcraftgaming.dayz;
 
 import com.cloudcraftgaming.dayz.command.DayZCommand;
+import com.cloudcraftgaming.dayz.command.ZoneCommand;
 import com.cloudcraftgaming.dayz.listener.*;
 import com.cloudcraftgaming.dayz.mechanics.Bleed;
 import com.cloudcraftgaming.dayz.mechanics.BoneBreak;
@@ -31,6 +32,7 @@ public class Main extends JavaPlugin {
 
         //Register commands
         getCommand("dayz").setExecutor(new DayZCommand());
+        getCommand("zone").setExecutor(new ZoneCommand());
 
         //Register events
         getServer().getPluginManager().registerEvents(new JoinListener(), this);

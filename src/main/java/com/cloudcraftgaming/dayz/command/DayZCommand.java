@@ -68,6 +68,7 @@ public class DayZCommand implements CommandExecutor {
     private void sendHelpMessages(Player p) {
         p.sendMessage(ChatColor.GOLD + "-~- DayZ Help -~-");
         p.sendMessage(ChatColor.GREEN + "/dayz help" + ChatColor.LIGHT_PURPLE + " - Displays info on DayZ commands.");
+        p.sendMessage(ChatColor.GREEN + "/zone" + ChatColor.LIGHT_PURPLE + " - Displays what zone you are in.");
         p.sendMessage(ChatColor.GREEN + "/dayz tool" + ChatColor.LIGHT_PURPLE + " - Enables/Disables the zone selection tool.");
         p.sendMessage(ChatColor.GREEN + "/dayz setZone <zone #>" + ChatColor.LIGHT_PURPLE + " - Sets the area for the specified zone.");
         p.sendMessage(ChatColor.GOLD + "End of DayZ Help.");

@@ -50,7 +50,6 @@ public class MessageManager {
             en.addDefault("Chest.Refill", "&6Chests have been refilled!");
 
             en.addDefault("Zone.Change", "&7You have entered zone %zone%!");
-            en.addDefault("Zone.Leave", "&7You have left zone %zone%!");
 
             en.addDefault("Set.Location.One", "&6Location one set!");
             en.addDefault("Set.Location.Two", "&6Location two set!");
@@ -62,6 +61,9 @@ public class MessageManager {
             en.addDefault("Command.Tool.Enabled", "&6Zone tool (stick) now enabled!");
             en.addDefault("Command.Tool.Disabled", "&6Zone tool (stick) now disabled!");
             en.addDefault("Command.Set.Zone", "&6Zone %number% locations set!");
+
+            en.addDefault("Command.Zone.Info", "&6You are in zone %zone%!");
+            en.addDefault("Command.Zone.None", "&6You are not in a zone!");
 
             en.addDefault("Notification.PlayerOnly", "&4That command can only be used by a player!");
             en.addDefault("Notification.NoPerm", "&4You do not have permission to do that!");

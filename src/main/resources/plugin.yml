@@ -10,6 +10,8 @@ commands:
   dayz:
     description: Base command for the DayZ plugin.
     permission: DayZ.admin
+  zone:
+    description: Displays zone player is in.
 
 permissions:
   DayZ.admin:
