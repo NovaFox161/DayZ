@@ -85,7 +85,9 @@ public class Thirst {
                         Double thirst = PlayerDataManager.getThirst(p);
                         if (thirst <= 0) {
                             Double damage = Main.plugin.getConfig().getDouble("Thirst.Damage.Amount");
-                            p.damage(damage);
+                            if (p.getHealth() - damage > 0) {
+                                p.damage(damage);
+                            }
                         }
                     }
                 }
