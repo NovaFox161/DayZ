@@ -38,13 +38,14 @@ public class DayZCommand implements CommandExecutor {
                         } else {
                             player.sendMessage(MessageManager.getMessage("Notification.Args.Invalid"));
                         }
-                    } else if (args.length == 2) {
+                    } else if (args.length == 3) {
                         if (args[0].equalsIgnoreCase("SetZone")) {
                             String zoneNumString = args[1];
                             try {
                                 Integer zoneNum = Integer.valueOf(zoneNumString);
+                                Integer subZone = Integer.valueOf(args[2]);
                                 if (Zone.isValid(zoneNum)) {
-                                    setZone(player, zoneNum);
+                                    setZone(player, zoneNum, subZone);
                                 } else {
                                     player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                                 }
@@ -74,15 +75,15 @@ public class DayZCommand implements CommandExecutor {
         p.sendMessage(ChatColor.GOLD + "End of DayZ Help.");
     }
 
-    private void setZone(Player p, Integer zoneNum) {
+    private void setZone(Player p, Integer zoneNum, Integer subZone) {
        if (PlayerDataManager.hasLocationOne(p) && !PlayerDataManager.hasLocationTwo(p)) {
            //Only loc one set.
            p.sendMessage(MessageManager.getMessage("Set.Location.Check.OneOnly"));
        } else if (PlayerDataManager.hasLocationOne(p) && PlayerDataManager.hasLocationTwo(p)) {
            //Both locations set.
            Zone zone = Zone.fromValue(zoneNum);
-           ZoneDataManager.saveLocationOneForZone(zone, PlayerDataManager.getLocationOne(p));
-           ZoneDataManager.saveLocationTwoForZone(zone, PlayerDataManager.getLocationTwo(p));
+           ZoneDataManager.saveLocationOneForZone(zone, subZone, PlayerDataManager.getLocationOne(p));
+           ZoneDataManager.saveLocationTwoForZone(zone, subZone, PlayerDataManager.getLocationTwo(p));
            PlayerDataManager.deleteLocationOne(p);
            PlayerDataManager.deleteLocationTwo(p);
 
