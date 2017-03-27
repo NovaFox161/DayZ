@@ -57,6 +57,8 @@ public class MessageManager {
             en.addDefault("Set.Location.Check.TwoOnly", "&6Set location one by left clicking a block!");
             en.addDefault("Set.Location.Check.Both", "&6Both locations set! Use the appropriate command!");
             en.addDefault("Set.Location.Check.None", "&6Set locations via the zone tool (stick)!");
+            en.addDefault("Delete.Success", "&4Successfully deleted the specified sub-Zone!");
+            en.addDefault("Delete.Failure", "&4Failed to delete sub zone! Are you sure it exists?");
 
             en.addDefault("Command.Tool.Enabled", "&6Zone tool (stick) now enabled!");
             en.addDefault("Command.Tool.Disabled", "&6Zone tool (stick) now disabled!");

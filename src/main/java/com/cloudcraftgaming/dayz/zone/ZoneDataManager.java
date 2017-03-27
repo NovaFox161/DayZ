@@ -48,6 +48,22 @@ public class ZoneDataManager {
         return true;
     }
 
+    public static boolean deleteSubZone(Zone zone, Integer sub) {
+        YamlConfiguration yml = FileManager.getZoneLocationYml();
+        if (yml.contains("Zones." + zone.name() + ".sub." + sub)) {
+            yml.set("Zones." + zone.name() + ".sub." + sub, null);
+
+            List<String> subs = yml.getStringList("Zones." + zone.name() + ".subs");
+            if (subs.contains(String.valueOf(sub))) {
+                subs.remove(String.valueOf(subs));
+                yml.set("Zones." + zone.name() + ".subs", subs);
+            }
+            FileManager.saveZoneLocationFile(yml);
+            return true;
+        }
+        return false;
+    }
+
     //Getters
     private static Location getLocationOneForZone(Zone zone, Integer sub) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
