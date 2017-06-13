@@ -57,6 +57,7 @@ public class MessageManager {
             en.addDefault("Set.Location.Check.TwoOnly", "&6Set location one by left clicking a block!");
             en.addDefault("Set.Location.Check.Both", "&6Both locations set! Use the appropriate command!");
             en.addDefault("Set.Location.Check.None", "&6Set locations via the zone tool (stick)!");
+            en.addDefault("Set.Location.Expand", "&6Expanded selection from 0y to 256y!");
             en.addDefault("Delete.Success", "&4Successfully deleted the specified sub-Zone!");
             en.addDefault("Delete.Failure", "&4Failed to delete sub zone! Are you sure it exists?");
 

@@ -5,6 +5,7 @@ import com.cloudcraftgaming.dayz.utils.MessageManager;
 import com.cloudcraftgaming.dayz.zone.Zone;
 import com.cloudcraftgaming.dayz.zone.ZoneDataManager;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,6 +36,8 @@ public class DayZCommand implements CommandExecutor {
                             } else {
                                 player.sendMessage(MessageManager.getMessage("Command.Tool.Disabled"));
                             }
+                        } else if (args[0].equalsIgnoreCase("expand")) {
+                            expandSelection(player);
                         } else {
                             player.sendMessage(MessageManager.getMessage("Notification.Args.Invalid"));
                         }
@@ -122,5 +125,30 @@ public class DayZCommand implements CommandExecutor {
            //No locations set.
            p.sendMessage(MessageManager.getMessage("Set.Location.Check.None"));
        }
+    }
+
+    private void expandSelection(Player p) {
+        if (PlayerDataManager.hasLocationOne(p) && !PlayerDataManager.hasLocationTwo(p)) {
+            //Only loc one set.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.OneOnly"));
+        } else if (PlayerDataManager.hasLocationOne(p) && PlayerDataManager.hasLocationTwo(p)) {
+            //Both locations, expand.
+            Location locOneOr = PlayerDataManager.getLocationOne(p);
+            Location locTwoOr = PlayerDataManager.getLocationTwo(p);
+
+            locOneOr.setY(0);
+            locTwoOr.setY(256);
+
+            PlayerDataManager.setLocationOne(p, locOneOr);
+            PlayerDataManager.setLocationTwo(p, locTwoOr);
+
+            p.sendMessage(MessageManager.getMessage("Set.Location.Expand"));
+        } else if (!PlayerDataManager.hasLocationOne(p) && PlayerDataManager.hasLocationOne(p)) {
+            //Only loc two set.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.TwoOnly"));
+        } else {
+            //No locations set.
+            p.sendMessage(MessageManager.getMessage("Set.Location.Check.None"));
+        }
     }
 }

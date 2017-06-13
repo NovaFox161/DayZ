@@ -14,8 +14,8 @@ import java.util.List;
  * For Project: DayZ
  */
 public class FileManager {
-    private static Double conVersion = 1.0;
-    static Double msgVersion = 1.0;
+    private static Double conVersion = 1.1;
+    static Double msgVersion = 1.1;
 
     //Functionals
     public static void createConfig() {
