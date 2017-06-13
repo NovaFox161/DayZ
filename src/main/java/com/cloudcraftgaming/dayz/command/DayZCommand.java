@@ -52,25 +52,25 @@ public class DayZCommand implements CommandExecutor {
                             } catch (NumberFormatException e) {
                                 player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                             }
-                        }
-                    } else if (args[0].equalsIgnoreCase("DeleteZone")) {
-                        String zoneNumString = args[1];
-                        try {
-                            Integer zoneNum = Integer.valueOf(zoneNumString);
-                            Integer subZone = Integer.valueOf(args[2]);
-                            if (Zone.isValid(zoneNum)) {
-                                if (ZoneDataManager.deleteSubZone(Zone.fromValue(zoneNum), subZone)) {
-                                    //Deleted
-                                    player.sendMessage(MessageManager.getMessage("Delete.Success"));
+                        } else if (args[0].equalsIgnoreCase("DeleteZone")) {
+                            String zoneNumString = args[1];
+                            try {
+                                Integer zoneNum = Integer.valueOf(zoneNumString);
+                                Integer subZone = Integer.valueOf(args[2]);
+                                if (Zone.isValid(zoneNum)) {
+                                    if (ZoneDataManager.deleteSubZone(Zone.fromValue(zoneNum), subZone)) {
+                                        //Deleted
+                                        player.sendMessage(MessageManager.getMessage("Delete.Success"));
+                                    } else {
+                                        //Failed, does not exist?
+                                        player.sendMessage(MessageManager.getMessage("Delete.Failure"));
+                                    }
                                 } else {
-                                    //Failed, does not exist?
-                                    player.sendMessage(MessageManager.getMessage("Delete.Failure"));
+                                    player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                                 }
-                            } else {
+                            } catch (NumberFormatException e) {
                                 player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                             }
-                        } catch (NumberFormatException e) {
-                            player.sendMessage(MessageManager.getMessage("Notification.ZoneNum.Integer"));
                         }
                     } else {
                         player.sendMessage(MessageManager.getMessage("Notification.Args.TooMany"));
