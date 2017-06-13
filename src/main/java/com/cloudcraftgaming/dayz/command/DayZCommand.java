@@ -38,6 +38,12 @@ public class DayZCommand implements CommandExecutor {
                         } else {
                             player.sendMessage(MessageManager.getMessage("Notification.Args.Invalid"));
                         }
+                    } else if (args.length == 2) {
+                        if (args[0].equalsIgnoreCase("SetZone")) {
+                            player.sendMessage(MessageManager.getMessage("Notifications.Args.TooFew"));
+                        } else {
+                            player.sendMessage(MessageManager.getMessage("Notifications.Args.Invalid"));
+                        }
                     } else if (args.length == 3) {
                         if (args[0].equalsIgnoreCase("SetZone")) {
                             String zoneNumString = args[1];

@@ -29,8 +29,10 @@ public class FileManager {
             Main.plugin.getConfig().addDefault("Console.Verbose", true);
 
             List<String> worlds = Main.plugin.getConfig().getStringList("Worlds.Enabled");
+            worlds.add("warzmap");
+            worlds.add("weedkits");
+            worlds.add("Test");
             worlds.add("world");
-            worlds.add("ExampleWorld");
             Main.plugin.getConfig().set("Worlds.Enabled", worlds);
 
             Main.plugin.getConfig().addDefault("Chest.Refill.Enabled", true);
