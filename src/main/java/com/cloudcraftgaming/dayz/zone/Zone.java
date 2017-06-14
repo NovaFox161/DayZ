@@ -21,20 +21,21 @@ public enum Zone {
     }
 
     public static Zone fromValue(int value) {
-        if (value == 1) {
-            return ONE;
-        } else if (value == 2) {
-            return TWO;
-        } else if (value == 3) {
-            return THREE;
-        } else if (value == 4) {
-            return FOUR;
-        } else if (value == 5) {
-            return FIVE;
-        } else if (value == 6) {
-            return SIX;
-        } else {
-            return ONE;
+        switch (value) {
+            case 1:
+                return ONE;
+            case 2:
+                return TWO;
+            case 3:
+                return THREE;
+            case 4:
+                return FOUR;
+            case 5:
+                return FIVE;
+            case 6:
+                return SIX;
+            default:
+                return ONE;
         }
     }
 

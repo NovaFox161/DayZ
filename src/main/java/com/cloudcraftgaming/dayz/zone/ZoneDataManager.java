@@ -67,7 +67,7 @@ public class ZoneDataManager {
     //Getters
     private static Location getLocationOneForZone(Zone zone, Integer sub) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
-        World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".loc1.world"));
+        World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".sub." + sub + ".loc1.world"));
         Double x = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc1.x");
         Double y = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc1.y");
         Double z = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc1.z");
@@ -76,7 +76,7 @@ public class ZoneDataManager {
 
     private static Location getLocationTwoForZone(Zone zone, Integer sub) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
-        World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".loc2.world"));
+        World w = Bukkit.getWorld(yml.getString("Zones." + zone.name() + ".sub." + sub + ".loc2.world"));
         Double x = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc2.x");
         Double y = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc2.y");
         Double z = yml.getDouble("Zones." + zone.name() + ".sub." + sub + ".loc2.z");
