@@ -112,6 +112,6 @@ public class ZoneDataManager {
     //Booleans/Checkers
     private static Boolean zoneSaved(Zone zone) {
         YamlConfiguration yml = FileManager.getZoneLocationYml();
-        return yml.contains("Zones." + zone.name() + ".loc1") && yml.contains("Zones." + zone.name() + ".loc2");
+        return yml.contains("Zones." + zone.name()) && yml.contains("Zones." + zone.name());
     }
 }
