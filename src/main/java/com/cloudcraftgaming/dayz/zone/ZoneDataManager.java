@@ -55,7 +55,7 @@ public class ZoneDataManager {
 
             List<String> subs = yml.getStringList("Zones." + zone.name() + ".subs");
             if (subs.contains(String.valueOf(sub))) {
-                subs.remove(String.valueOf(subs));
+                subs.remove(String.valueOf(sub));
                 yml.set("Zones." + zone.name() + ".subs", subs);
             }
             FileManager.saveZoneLocationFile(yml);
