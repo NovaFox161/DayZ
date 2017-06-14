@@ -61,7 +61,7 @@ public class PlayerInteractListener implements Listener {
                                             event.getItem().setAmount(event.getItem().getAmount() - 1);
                                             p.sendMessage(MessageManager.getMessage("Thirst.Full"));
                                         } else {
-                                            PlayerDataManager.setThirst(p, fill);
+                                            PlayerDataManager.setThirst(p, PlayerDataManager.getThirst(p) + fill);
                                             event.getItem().setAmount(event.getItem().getAmount() - 1);
                                         }
                                     }

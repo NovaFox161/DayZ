@@ -54,7 +54,7 @@ public class PlayerDataManager {
             YamlConfiguration data = getPlayerDataYml(player);
 
             data.set("Player.Name", player.getName());
-            data.set("Zone.Tool", false);
+            data.set("Zone.Tool.Enabled", false);
 
             savePlayerDataFile(player, data);
             deleteLocationOne(player);
@@ -93,7 +93,7 @@ public class PlayerDataManager {
     }
 
     public static boolean zoneToolEnabled(Player player) {
-        return getPlayerDataYml(player).getString("Zone.Tool").equalsIgnoreCase("True");
+        return getPlayerDataYml(player).getString("Zone.Tool.Enabled").equalsIgnoreCase("True");
     }
 
     //Getters
@@ -195,7 +195,7 @@ public class PlayerDataManager {
 
     public static void setZoneTool(Player player, Boolean _enabled) {
         YamlConfiguration yml = getPlayerDataYml(player);
-        yml.set("Zone.Tool", _enabled);
+        yml.set("Zone.Tool.Enabled", _enabled);
         savePlayerDataFile(player, yml);
     }
 }
